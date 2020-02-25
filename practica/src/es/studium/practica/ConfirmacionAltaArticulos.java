@@ -81,7 +81,7 @@ public class ConfirmacionAltaArticulos extends JDialog {
 		String login = "root";
 		String driver = "com.mysql.jdbc.Driver";
 		String url = "jdbc:mysql://localhost:3306/tiendecita?autoReconnect=true&useSSL=false";
-		String password = "Patata01";
+		String password = "Studium2019;";
 		String sentencia=frase;
 		Connection connection = null;
 		java.sql.Statement statement = null;

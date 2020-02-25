@@ -34,7 +34,7 @@ public class GuardaPDF {
 			Class.forName("com.mysql.jdbc.Driver");
 			String servidor = "jdbc:mysql://localhost:3306/tiendecita?useSSL=false";
 			String usuarioDB = "root";
-			String passwordDB = "Patata01";
+			String passwordDB = "Studium2019;";
 			java.sql.Connection conexion = DriverManager.getConnection(servidor, usuarioDB, passwordDB);
 			JasperPrint print = JasperFillManager.fillReport(report, parametros, conexion);
 			JasperExportManager.exportReportToPdfFile(print, "EjemploInforme.pdf");

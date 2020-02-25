@@ -185,7 +185,7 @@ public class AltaTickets extends JFrame {
 		String login = "root";
 		String driver = "com.mysql.jdbc.Driver";
 		String url = "jdbc:mysql://localhost:3306/tiendecita?autoReconnect=true&useSSL=false";
-		String password = "Patata01";
+		String password = "Studium2018;";
 		String sentencia="Select * from tiendecita.articulos";
 		Connection connection = null;
 		java.sql.Statement statement = null;
@@ -316,7 +316,7 @@ public class AltaTickets extends JFrame {
 		String login = "root";
 		String driver = "com.mysql.jdbc.Driver";
 		String url = "jdbc:mysql://localhost:3306/tiendecita?autoReconnect=true&useSSL=false";
-		String password = "Patata01";
+		String password = "Studium2018;";
 		String sentencia="SELECT idTicket FROM tiendecita.tickets;";
 		Connection connection = null;
 		java.sql.Statement statement = null;
