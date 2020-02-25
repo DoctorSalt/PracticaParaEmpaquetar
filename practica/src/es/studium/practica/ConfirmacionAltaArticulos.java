@@ -13,7 +13,6 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 /**
  * Esta clase contiene un dialog donde se hace la conexion a la base de datos al darle aceptar.
@@ -28,7 +27,6 @@ public class ConfirmacionAltaArticulos extends JDialog {
 	 */
 	String frase;
 	public ConfirmacionAltaArticulos() {
-		String frase = null;
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent arg0) {
@@ -78,14 +76,13 @@ public class ConfirmacionAltaArticulos extends JDialog {
 	 * @param frase es la sentencia que ejecutara
 	 */
 	protected void Ejecutar(String frase) {
-		String login = "root";
+		String login = ConectameEsta.getUsuarioBD();
 		String driver = "com.mysql.jdbc.Driver";
-		String url = "jdbc:mysql://localhost:3306/tiendecita?autoReconnect=true&useSSL=false";
-		String password = "Studium2019;";
+		String url = ConectameEsta.getConexionBD();
+		String password = ConectameEsta.getPasswordDB();
 		String sentencia=frase;
 		Connection connection = null;
 		java.sql.Statement statement = null;
-		ResultSet rs = null;
 		try
 		{
 			Class.forName(driver);

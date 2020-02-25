@@ -11,13 +11,16 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 
 public class ConfirmacionAltaTickets extends JDialog {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	String ejecucionAltaTicket;
 	ArrayList<String> listaEjecucionTicketsArticulo;
 	private final JPanel contentPanel = new JPanel();
@@ -84,14 +87,13 @@ public class ConfirmacionAltaTickets extends JDialog {
 		}		
 	}
 	private void insertar(String ejecucionSentencia) {
-		String login = "root";
+		String login = ConectameEsta.getUsuarioBD();
 		String driver = "com.mysql.jdbc.Driver";
-		String url = "jdbc:mysql://localhost:3306/tiendecita?autoReconnect=true&useSSL=false";
-		String password = "Studium2019;";
+		String url = ConectameEsta.getConexionBD();
+		String password = ConectameEsta.getPasswordDB();
 		String sentencia=ejecucionSentencia;
 		Connection connection = null;
 		java.sql.Statement statement = null;
-		ResultSet rs = null;
 		try
 		{
 			Class.forName(driver);

@@ -45,7 +45,7 @@ public class ConsultaTickets extends JFrame {
 		JLabel label = new JLabel("Tickets:");
 		label.setBounds(61, 37, 56, 16);
 		contentPane.add(label);		
-		comboBox= new JComboBox();
+		comboBox= new JComboBox<String>();
 		comboBox.setBounds(139, 36, 169, 22);
 		comboBox=MeterDatos(comboBox);
 		contentPane.add(comboBox);		
@@ -73,12 +73,12 @@ public class ConsultaTickets extends JFrame {
 	 * @param comboRecogido Este es el comboBox que recibe los datos
 	 * @return devuelve el comboBox resultante
 	 */
-	private JComboBox MeterDatos(JComboBox comboRecogido) {
-		comboRecogido.setModel(new DefaultComboBoxModel(new String[] {"Seleccione un Ticket"}));		
-		String login = "root";
+	private JComboBox<String> MeterDatos(JComboBox<String> comboRecogido) {
+		comboRecogido.setModel(new DefaultComboBoxModel<String>(new String[] {"Seleccione un Ticket"}));		
+		String login = ConectameEsta.getUsuarioBD();
 		String driver = "com.mysql.jdbc.Driver";
-		String url = "jdbc:mysql://localhost:3306/tiendecita?autoReconnect=true&useSSL=false";
-		String password = "Studium2019;";
+		String url = ConectameEsta.getConexionBD();
+		String password = ConectameEsta.getPasswordDB();
 		String sentencia="Select * from tiendecita.tickets";
 		Connection connection = null;
 		java.sql.Statement statement = null;

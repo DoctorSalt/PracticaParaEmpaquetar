@@ -71,13 +71,12 @@ public class ConfirmacionModificarArticulos extends JDialog {
 	 * Ejecuta la sentencia SQL que se le ha pasado
 	 */
 	private void Ejecutar() {
-		String login = "root";
+		String login = ConectameEsta.getUsuarioBD();
 		String driver = "com.mysql.jdbc.Driver";
-		String url = "jdbc:mysql://localhost:3306/tiendecita?autoReconnect=true&useSSL=false";
-		String password = "Studium2019;";
+		String url = ConectameEsta.getConexionBD();
+		String password = ConectameEsta.getPasswordDB();
 		Connection connection = null;
 		java.sql.Statement statement = null;
-		ResultSet rs = null;		
 		String sentencia=getFrase();
 		try
 		{

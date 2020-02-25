@@ -134,10 +134,10 @@ public class ModificarArticulos2 extends JFrame {
 	 * @param selec
 	 */
 	private void DatosCompletos(String selec) {	
-		String login = "root";
+		String login = ConectameEsta.getUsuarioBD();
 		String driver = "com.mysql.jdbc.Driver";
-		String url = "jdbc:mysql://localhost:3306/tiendecita?autoReconnect=true&useSSL=false";
-		String password = "Studium2019;";
+		String url = ConectameEsta.getConexionBD();
+		String password = ConectameEsta.getPasswordDB();
 		Connection connection = null;
 		java.sql.Statement statement = null;
 		ResultSet rs = null;		

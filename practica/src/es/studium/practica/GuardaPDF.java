@@ -3,12 +3,9 @@ import java.awt.Desktop;
 import java.io.File;
 import java.sql.DriverManager;
 import java.util.HashMap;
-
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -32,9 +29,9 @@ public class GuardaPDF {
 			HashMap<String,Object> parametros = new HashMap<String,Object>();
 			JasperReport report = (JasperReport) JRLoader.loadObjectFromFile("reportPrincipal.jasper");
 			Class.forName("com.mysql.jdbc.Driver");
-			String servidor = "jdbc:mysql://localhost:3306/tiendecita?useSSL=false";
-			String usuarioDB = "root";
-			String passwordDB = "Studium2019;";
+			String servidor = ConectameEsta.getConexionBD();
+			String usuarioDB = ConectameEsta.getUsuarioBD();
+			String passwordDB = ConectameEsta.getPasswordDB();
 			java.sql.Connection conexion = DriverManager.getConnection(servidor, usuarioDB, passwordDB);
 			JasperPrint print = JasperFillManager.fillReport(report, parametros, conexion);
 			JasperExportManager.exportReportToPdfFile(print, "EjemploInforme.pdf");

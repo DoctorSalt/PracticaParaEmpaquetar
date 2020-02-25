@@ -101,10 +101,10 @@ public class ConsultaTickets2 extends JFrame {
 	 * @param modeloTabla es el modelo tabla donde se harán los cambios
 	 */
 	private void MeteEsasFilas(DefaultTableModel modeloTabla) {
-		String login = "root";
+		String login = ConectameEsta.getUsuarioBD();
 		String driver = "com.mysql.jdbc.Driver";
-		String url = "jdbc:mysql://localhost:3306/tiendecita?autoReconnect=true&useSSL=false";
-		String password = "Studium2019;";
+		String url = ConectameEsta.getConexionBD();
+		String password = ConectameEsta.getPasswordDB();
 		String sentencia="select idArticuloFK, descArticulo, precioArticulo, cantidadTA  from articulos, ticketsarticuloS where idTicketFK="+getidTicketMandado()+" and idArticulo=idArticuloFK;";
 		Connection connection = null;
 		java.sql.Statement statement = null;

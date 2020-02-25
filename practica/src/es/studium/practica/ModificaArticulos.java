@@ -39,8 +39,8 @@ public class ModificaArticulos extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);		
-		final JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Selecciona un articulo"}));
+		final JComboBox<String> comboBox = new JComboBox<String>();
+		comboBox.setModel(new DefaultComboBoxModel<String>(new String[] {"Selecciona un articulo"}));
 		comboBox.setBounds(130, 51, 169, 22);
 		MeterDatos(comboBox);
 		contentPane.add(comboBox);		
@@ -68,11 +68,11 @@ public class ModificaArticulos extends JFrame {
 	 * de datos.
 	 * @param comboBox Este es el comboBox que recibe los datos
 	 */
-	private void MeterDatos(JComboBox comboBox) {
-		String login = "root";
+	private void MeterDatos(JComboBox<String> comboBox) {
+		String login = ConectameEsta.getUsuarioBD();
 		String driver = "com.mysql.jdbc.Driver";
-		String url = "jdbc:mysql://localhost:3306/tiendecita?autoReconnect=true&useSSL=false";
-		String password = "Studium2019;";
+		String url = ConectameEsta.getConexionBD();
+		String password = ConectameEsta.getPasswordDB();
 		String sentencia="Select * from tiendecita.articulos";
 		Connection connection = null;
 		java.sql.Statement statement = null;

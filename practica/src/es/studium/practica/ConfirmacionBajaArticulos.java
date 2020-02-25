@@ -12,7 +12,6 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 /**
@@ -74,14 +73,13 @@ public class ConfirmacionBajaArticulos extends JDialog {
 	 * @param frase2 es la sentencia que ejecutara
 	 */
 	public void Ejecutar(String frase2) {
-		String login = "root";
+		String login = ConectameEsta.getUsuarioBD();
 		String driver = "com.mysql.jdbc.Driver";
-		String url = "jdbc:mysql://localhost:3306/tiendecita?autoReconnect=true&useSSL=false";
-		String password = "Studium2019;";
+		String url = ConectameEsta.getConexionBD();
+		String password = ConectameEsta.getPasswordDB();
 		String sentencia=frase2;
 		Connection connection = null;
 		java.sql.Statement statement = null;
-		ResultSet rs = null;
 		try
 		{
 			Class.forName(driver);

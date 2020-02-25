@@ -48,10 +48,10 @@ public class TablaConsulta {
 			listaClientesBusquedaR=listaCosasBusqueda;
 			nombreTablaR=nombreTabla;
 
-			String login = "root";
+			String login = ConectameEsta.getUsuarioBD();
 			String driver = "com.mysql.jdbc.Driver";
-			String url = "jdbc:mysql://localhost:3306/tiendecita?autoReconnect=true&useSSL=false";
-			String password = "Studium2019;";
+			String url = ConectameEsta.getConexionBD();
+			String password = ConectameEsta.getPasswordDB();
 			String sentencia;
 			Connection connection = null;
 			java.sql.Statement statement = null;
@@ -66,7 +66,7 @@ public class TablaConsulta {
 				 * Es el vector de columnas aqui se añaden las columnas con sus nombres
 				 * Recibirá el array listaClientesTituloR
 				 */
-				Vector columnNames=new Vector();
+				Vector<String> columnNames=new Vector<String>();
 				
 				for(int i=0;i<tamano;i++) {
 					modelo.addColumn(listaClientesTituloR.get(i));

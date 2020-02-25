@@ -23,7 +23,7 @@ import java.awt.event.ActionEvent;
 public class BajaArticulos extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	JComboBox comboBox = new JComboBox();
+	JComboBox<Object> comboBox = new JComboBox<Object>();
 	/**
 	 * Es la clase de confirmacion es el dialog de confirmacion
 	 */
@@ -77,12 +77,12 @@ public class BajaArticulos extends JFrame {
 	 * de datos.
 	 * @param comboBox Este es el comboBox que recibe los datos
 	 */
-	private void MeterDatos(JComboBox comboBox) {
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Seleccione un Art\u00EDculo"}));		
-		String login = "root";
+	private void MeterDatos(JComboBox<Object> comboBox) {
+		comboBox.setModel(new DefaultComboBoxModel<Object>(new String[] {"Seleccione un Art\u00EDculo"}));		
+		String login = ConectameEsta.getUsuarioBD();
 		String driver = "com.mysql.jdbc.Driver";
-		String url = "jdbc:mysql://localhost:3306/tiendecita?autoReconnect=true&useSSL=false";
-		String password = "Studium2019;";
+		String url = ConectameEsta.getConexionBD();
+		String password = ConectameEsta.getPasswordDB();
 		String sentencia="Select * from tiendecita.articulos";
 		Connection connection = null;
 		java.sql.Statement statement = null;
