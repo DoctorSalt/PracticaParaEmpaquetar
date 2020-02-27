@@ -8,6 +8,6 @@ public class ConectameEsta {
 		return "jdbc:mysql://localhost:3306/tiendecita?useSSL=false";
 	}
 	public static String getPasswordDB() {
-		return "Studium2019;";
+		return "Patata01";
 	}
 }

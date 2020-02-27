@@ -12,6 +12,7 @@ import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  * Esta clase se dedica a crear informes en formato pdf con jasperreport
@@ -34,9 +35,12 @@ public class GuardaPDF {
 			String passwordDB = ConectameEsta.getPasswordDB();
 			java.sql.Connection conexion = DriverManager.getConnection(servidor, usuarioDB, passwordDB);
 			JasperPrint print = JasperFillManager.fillReport(report, parametros, conexion);
+			JasperViewer.viewReport(print, false);
+			/*
 			JasperExportManager.exportReportToPdfFile(print, "EjemploInforme.pdf");
 			File path = new File ("EjemploInforme.pdf");
 			Desktop.getDesktop().open(path);
+			*/
 		}
 		catch (Exception e)
 		{			
